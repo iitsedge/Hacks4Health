@@ -26,3 +26,4 @@ public class Doctor {
 		return writePermission;
 	}
 }
+
