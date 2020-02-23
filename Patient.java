@@ -2,14 +2,13 @@ public class Patient{
 	private int patID;
 	private int patAge;
 	protected String affliction;
-	protected Location city;
 	
 //constructor
-	public Patient(int pID,int pAge,String aAff, Location pCity) {
+	public Patient(int pID,int pAge,String aAff) {
 		this.patID = pID;
 		this.patAge = pAge;
 		this.affliction = aAff;	
-		this.city = pCity;
+
 	}
 	
 
