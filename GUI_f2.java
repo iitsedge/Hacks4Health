@@ -7,6 +7,7 @@ package com.mycompany.corona_gui;
 
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Font;
 import static java.awt.Font.BOLD;
 import java.awt.event.ActionEvent;
@@ -108,7 +109,7 @@ public class GUI_f2 extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setForeground(new java.awt.Color(51, 51, 51));
-        jButton2.setText("Corona Virus");
+        jButton2.setText("Cape Town");
         jButton2.setOpaque(true);
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -129,7 +130,7 @@ public class GUI_f2 extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(0, 0, 0));
         jButton4.setForeground(new java.awt.Color(51, 51, 51));
-        jButton4.setText("Measles");
+        jButton4.setText("Denver");
         jButton4.setOpaque(true);
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -147,7 +148,7 @@ public class GUI_f2 extends javax.swing.JFrame {
 
         jButton7.setBackground(new java.awt.Color(0, 0, 0));
         jButton7.setForeground(new java.awt.Color(51, 51, 51));
-        jButton7.setText("Tuberculosis");
+        jButton7.setText("Seattle");
         jButton7.setOpaque(true);
         jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -165,7 +166,7 @@ public class GUI_f2 extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(0, 0, 0));
         jButton3.setForeground(new java.awt.Color(51, 51, 51));
-        jButton3.setText("Flu");
+        jButton3.setText("Chicago");
         jButton3.setOpaque(true);
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -308,12 +309,14 @@ public class GUI_f2 extends javax.swing.JFrame {
         Font originalFont = jButton2.getFont();
         Map attributes = originalFont.getAttributes();
         jButton2.setFont(originalFont.deriveFont(BOLD));
+        jButton2.setForeground(Color.red);
     }//GEN-LAST:event_jButton2MouseEntered
 
     private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
         // TODO add your handling code here:
         //jButton1.setForeground(UIManager.getColor("control"));
         jButton2.setFont(null);
+        jButton2.setForeground(Color.black);
     }//GEN-LAST:event_jButton2MouseExited
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -327,17 +330,19 @@ public class GUI_f2 extends javax.swing.JFrame {
         Font originalFont = jButton4.getFont();
         Map attributes = originalFont.getAttributes();
         jButton4.setFont(originalFont.deriveFont(BOLD));
+        jButton4.setForeground(Color.red);
     }//GEN-LAST:event_jButton4MouseEntered
 
     private void jButton4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseExited
         // TODO add your handling code here:
         jButton4.setFont(null);
+        jButton4.setForeground(Color.black);
     }//GEN-LAST:event_jButton4MouseExited
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        new Measles_f5().setVisible(true);
+        new TB_f6().setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseEntered
@@ -345,17 +350,19 @@ public class GUI_f2 extends javax.swing.JFrame {
         Font originalFont = jButton7.getFont();
         Map attributes = originalFont.getAttributes();
         jButton7.setFont(originalFont.deriveFont(BOLD));
+        jButton7.setForeground(Color.red);
     }//GEN-LAST:event_jButton7MouseEntered
 
     private void jButton7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseExited
         // TODO add your handling code here:
         jButton7.setFont(null);
+        jButton7.setForeground(Color.black);
     }//GEN-LAST:event_jButton7MouseExited
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        new TB_f6().setVisible(true);
+        new Measles_f5().setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
@@ -363,11 +370,13 @@ public class GUI_f2 extends javax.swing.JFrame {
         Font originalFont = jButton3.getFont();
         Map attributes = originalFont.getAttributes();
         jButton3.setFont(originalFont.deriveFont(BOLD));
+        jButton3.setForeground(Color.red);
     }//GEN-LAST:event_jButton3MouseEntered
 
     private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
         // TODO add your handling code here:
         jButton3.setFont(null);
+        jButton3.setForeground(Color.black);
     }//GEN-LAST:event_jButton3MouseExited
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

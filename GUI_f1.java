@@ -5,11 +5,21 @@
  */
 package com.mycompany.corona_gui;
 
+import static Corona_Classes.HackCU.printCity;
+import static Corona_Classes.HackCU.sortLocations;
+import static Corona_Classes.HackCU.writeToFile;
+import Corona_Classes.Location;
+import Corona_Classes.Patient;
+import java.awt.Color;
 import java.awt.Font;
 import static java.awt.Font.BOLD;
 import java.awt.font.TextAttribute;
+import java.io.File;
+import java.io.FileNotFoundException;
 import static java.lang.constant.ConstantDescs.NULL;
+import java.util.LinkedList;
 import java.util.Map;
+import java.util.Scanner;
 
 /**
  *
@@ -38,6 +48,7 @@ public class GUI_f1 extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -81,6 +92,17 @@ public class GUI_f1 extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel1.setText("Center for Disease Tracking");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel1MouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -88,24 +110,30 @@ public class GUI_f1 extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(196, 196, 196)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(144, 144, 144)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(196, 196, 196)
+                        .addComponent(jLabel2)))
                 .addContainerGap(132, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(169, 169, 169))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel2)
                 .addGap(35, 35, 35)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton2))
         );
 
@@ -166,6 +194,18 @@ public class GUI_f1 extends javax.swing.JFrame {
         jButton2.setFont(null);
     }//GEN-LAST:event_jButton2MouseExited
 
+    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
+        // TODO add your handling code here:
+        jLabel1.setForeground(Color.BLACK);
+    }//GEN-LAST:event_jLabel1MouseExited
+
+    private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
+        // TODO add your handling code here:
+        Font originalFont = jButton2.getFont();
+        Map attributes = originalFont.getAttributes();
+        jLabel1.setForeground(Color.red);
+    }//GEN-LAST:event_jLabel1MouseEntered
+
     /**
      * @param args the command line arguments
      */
@@ -176,6 +216,43 @@ public class GUI_f1 extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         
+        //HackCU.java CODE
+       		File file = new File("/Users/edgenicholson/NetBeansProjects/Corona_GUI/src/main/java/com/mycompany/corona_gui/database");
+		
+		Scanner scanner = null;
+		try {
+			scanner = new Scanner(file);
+		}catch(FileNotFoundException s){
+			System.out.println("File does Not Exist Please Try Again: ");
+		}
+		
+		LinkedList<Patient> patients = new LinkedList<>();
+		LinkedList<Location> locations = new LinkedList<>();
+		
+		//order: patID, patAge, affliction, x, y, city
+		//put all data into two linked lists, one for cities another for patients
+		while(scanner.hasNext()) {
+			int patID = scanner.nextInt();
+			int patAge = scanner.nextInt();
+			String affliction = scanner.next();
+			double x_ = scanner.nextDouble();
+			double y_ = scanner.nextDouble();
+			String city = scanner.next();
+
+
+			Patient pat = new Patient(patID, patAge, affliction);
+			Location loc = new Location(x_, y_, city);
+			
+			patients.add(pat);
+			locations.add(loc);
+		}
+		
+		sortLocations(locations, patients, locations.size());
+		//printCity(locations);
+		//writeToFile(locations);
+		//printOutput(locations);
+	
+                //HackCU.java CODE
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -188,6 +265,7 @@ public class GUI_f1 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
