@@ -6,7 +6,6 @@ import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-//import Patient;
 
 public class HackCU {
 	public static void main(String[] args) {
@@ -121,11 +120,4 @@ public class HackCU {
 		}
 		printWriter.close();
 	}
-	
-//	public static void printOutput(LinkedList<Location> locations){
-//		for(int i = 0; i <locations.size(); i++) {
-//			System.out.println(locations.get(i).);
-//		}
-//	}
-
 }
