@@ -89,12 +89,12 @@ img {vertical-align: middle;}
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4} 
+  from {opacity: .4}
   to {opacity: 1}
 }
 
 @keyframes fade {
-  from {opacity: .4} 
+  from {opacity: .4}
   to {opacity: 1}
 }
 
@@ -145,13 +145,19 @@ label {
 
   <div class="mySlides fade">
     <div class="numbertext">1 / 2</div>
-    <img src="/blob/master/unnamed.jpg" style="width:100%">
+    <img src="https://cdn4.vectorstock.com/i/1000x1000/94/28/dark-background-with-white-color-dotted-world-map-vector-12489428.jpg" 
+         alt="cdn4.vectorstock.com"  
+         height="142"
+         style="width:100%">
     <div class="text">Caption Text</div>
   </div>
 
   <div class="mySlides fade">
     <div class="numbertext">2 / 2</div>
-    <img src="blob/master/worldMap" style="width:100%">
+    <img src="https://media.istockphoto.com/vectors/abstract-world-map-blue-map-of-the-earth-from-the-square-points-dark-vector-id863621300?k=6&m=863621300&s=170667a&w=0&h=sjHGwoI0FZHfWc15VRT883ax9n9NnHOqT7Z2SHnVK68=" 
+         alt="media.istockphoto.com"  
+         height="142"
+         style="width:100%">
     <div class="text">Caption Two</div>
   </div>
 
@@ -162,16 +168,14 @@ label {
 <br>
 
 <div style="text-align:center">
-<span class="dot" onclick="currentSlide(1)"></span> 
-<span class="dot" onclick="currentSlide(2)"></span> 
+<span class="dot" onclick="currentSlide(1)"></span>
+<span class="dot" onclick="currentSlide(2)"></span>
 </div>
 
 
 <div class="topnav">
   <a class="active" href="#home">Home</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
+  
 </div>
 
 <div style="padding-left:16px">
@@ -180,10 +184,32 @@ label {
 </div>
 
 <div>
-  <label for="name">Name (4 to 8 characters):</label>
 
-  <input type="text" id="name" name="name" required
-         minlength="4" maxlength="8" size="10">
+  <label for="fname">First name:</label>
+  <input type="text" id="fname" name="fname"><br>
+  <label for="lname">Last name:</label>
+  <input type="text" id="lname" name="lname"><br>
+  
+  <label for="date">Date:</label>
+  <input type="date" id="date" name="date">
+  
+  <label for="myfile">Select a file:</label>
+  <input type="file" id="myfile" name="myfile">
+
+
+  <label for="gDisease">general disease</label>
+  <input type="text" id="gDisease" name="gDisease"><br>
+  <label for="sStrain">specific strain:</label>
+  <input type="text" id="sStrain" name="sStrain"><br>
+
+  <form>
+    <label for="quantity">Input GPS Coords Here:</label>
+    <input type="number" id="quantity" name="quantity">
+  </form>
+</div>
+
+<div>
+  <input type="submit to file">
 </div>
 
 <script>
@@ -202,15 +228,15 @@ function showSlides(n) {
 var i;
 var slides = document.getElementsByClassName("mySlides");
 var dots = document.getElementsByClassName("dot");
-if (n > slides.length) {slideIndex = 1}    
+if (n > slides.length) {slideIndex = 1}
 if (n < 1) {slideIndex = slides.length}
 for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
+    slides[i].style.display = "none";
 }
 for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
 }
-slides[slideIndex-1].style.display = "block";  
+slides[slideIndex-1].style.display = "block";
 dots[slideIndex-1].className += " active";
 }
 </script>
