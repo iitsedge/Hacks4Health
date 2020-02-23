@@ -1,35 +1,5 @@
-## Welcome to GitHub Pages
+## Hacks For Health
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Our project was designed to help hospitals and doctors track infectious diseases in their patients. Our website is designed for doctors to enter patients’ information (the disease, how long they have had it, and the city/cities they have been to).  This data will be converted to a text file and then processed and summarized.  The summary of the data which includes the city, the list of diseases within that city, and the total number of sick people is sent to the GUI which displays the general information to the public to show what diseases there are and hopefully raise awareness.  The cities we chose to display are based around our team members’ hometowns.
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/eileenrice1/eileenrice1.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Long term and on a large scale, the data would be entered and stored in database A (patient info) for doctors and hospitals to look at and track.  The hope is that the hospitals and doctors can use this data to better prevent disease outbreaks in real time.  The data in database A will then be summarized and condensed to the total number of infected people and the lists of diseases for each city.  This is then sent to database B (reduced, public data) for our GUI read from and display.  When a doctor adds a new patient to database A, database B would be updated to include the new patient in the overall summary for that patient’s city.  The GUI will then display the newly calculated data.  We hope that our project will raise awareness about different diseases and inspire people to take preventative measures.
